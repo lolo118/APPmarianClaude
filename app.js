@@ -399,8 +399,56 @@ function sendWhatsApp() {
   window.open(url, '_blank');
 }
 
+/* ── SCROLL REVEAL ──────────────────────────────────────────── */
+
+function initReveal() {
+  const items = document.querySelectorAll('.reveal, .reveal-stagger');
+  if (!items.length || !('IntersectionObserver' in window)) {
+    items.forEach(el => el.classList.add('in'));
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  items.forEach(el => io.observe(el));
+}
+
+/* ── PLAN CARD POINTER SPOTLIGHT ────────────────────────────── */
+
+function bindPlanCardSpotlight() {
+  const isCoarse = window.matchMedia('(pointer: coarse)').matches;
+  if (isCoarse) return;
+  const grid = document.getElementById('plansGrid');
+  if (!grid) return;
+  grid.addEventListener('pointermove', (e) => {
+    const card = e.target.closest('.plan-card');
+    if (!card) return;
+    const r = card.getBoundingClientRect();
+    card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+    card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+  });
+}
+
+/* ── ESCAPE-TO-CLOSE WIZARD (a11y) ──────────────────────────── */
+
+function bindWizardKeyboard() {
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    const overlay = document.getElementById('wizardOverlay');
+    if (overlay && overlay.classList.contains('open')) closeWizard();
+  });
+}
+
 /* ── INIT ───────────────────────────────────────────────────── */
 
 document.addEventListener('DOMContentLoaded', () => {
   renderPlans();
+  initReveal();
+  bindPlanCardSpotlight();
+  bindWizardKeyboard();
 });
