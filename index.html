@@ -5,19 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mariano Witte · Profesor de Pádel</title>
   <meta name="description" content="Entrenamientos de pádel personalizados con Mariano Witte. Más de 15 años de experiencia. Santiago del Estero." />
+  <meta name="theme-color" content="#0A1F14" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
   <!-- HERO -->
   <section class="hero" id="inicio">
-    <div class="hero-bg">
+    <div class="hero-bg" aria-hidden="true">
       <div class="court-lines"></div>
     </div>
-    <div class="hero-overlay"></div>
+    <div class="hero-arc" aria-hidden="true"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
     <div class="hero-content">
       <div class="badge-top">Santiago del Estero · Padelmanía</div>
       <h1 class="hero-title">
@@ -28,27 +30,27 @@
       <p class="hero-desc">Entrenamiento personalizado para quienes quieren resultados reales. Técnica, táctica y mentalidad competitiva.</p>
       <a href="#planes" class="btn-hero">Ver planes mensuales</a>
     </div>
-    <div class="scroll-hint">↓</div>
+    <div class="scroll-hint" aria-hidden="true">↓</div>
   </section>
 
   <!-- ABOUT -->
   <section class="about" id="sobre-mi">
     <div class="container">
       <div class="about-grid">
-        <div class="about-text">
+        <div class="about-text reveal">
           <span class="section-label">¿Por qué elegirme?</span>
           <h2>Más que clases,<br>un método</h2>
           <p>Con más de 15 años en las canchas y experiencia impartiendo clases en Argentina y México, diseño entrenamientos que combinan técnica depurada, análisis táctico y la mentalidad de un deportista de alto rendimiento.</p>
           <p>No improviso: cada sesión tiene un objetivo, un progreso medible y una evolución visible en tu juego.</p>
-          <div class="stats-row">
+          <div class="stats-row reveal-stagger">
             <div class="stat"><span class="stat-num">+15</span><span class="stat-label">Años de experiencia</span></div>
             <div class="stat"><span class="stat-num">❤️</span><span class="stat-label">Pasión por enseñar</span></div>
             <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Cancha incluida</span></div>
           </div>
         </div>
-        <div class="about-visual">
+        <div class="about-visual reveal">
           <div class="photo-frame">
-            <img src="about.jpg" alt="Mariano Witte" style="width:100%;height:100%;object-fit:cover;object-position:top;border-radius:18px;display:block;" />
+            <img src="about.jpg" alt="Mariano Witte" />
           </div>
         </div>
       </div>
@@ -57,12 +59,13 @@
 
   <!-- PLANES -->
   <section class="planes" id="planes">
+    <div class="planes-court" aria-hidden="true"></div>
     <div class="container">
-      <span class="section-label light">Suscripción mensual</span>
-      <h2 class="section-title light">Pagá una vez,<br>jugá todo el mes</h2>
-      <p class="section-sub">Los abonos mensuales te garantizan precio fijo, prioridad en agenda y un descuento real frente al pago por clase.</p>
+      <span class="section-label light reveal">Suscripción mensual</span>
+      <h2 class="section-title light reveal">Pagá una vez,<br>jugá todo el mes</h2>
+      <p class="section-sub reveal">Los abonos mensuales te garantizan precio fijo, prioridad en agenda y un descuento real frente al pago por clase.</p>
 
-      <div class="toggle-row">
+      <div class="toggle-row reveal" role="tablist">
         <button class="toggle-btn active" data-mode="individual" onclick="setMode('individual', this)">Individual</button>
         <button class="toggle-btn" data-mode="dupla" onclick="setMode('dupla', this)">Dupla</button>
         <button class="toggle-btn" data-mode="trio" onclick="setMode('trio', this)">Trío</button>
@@ -74,7 +77,7 @@
       </div>
 
       <!-- TORNEO -->
-      <div class="torneo-card">
+      <div class="torneo-card reveal">
         <div class="torneo-badge">🏆 ELITE</div>
         <div class="torneo-content">
           <div class="torneo-text">
@@ -102,9 +105,9 @@
   <!-- PRECIO CLASE SUELTA -->
   <section class="precio-clase" id="clase-suelta">
     <div class="container">
-      <span class="section-label">¿Preferís probar primero?</span>
-      <h2>Precio por clase suelta</h2>
-      <div class="clase-grid">
+      <span class="section-label reveal">¿Preferís probar primero?</span>
+      <h2 class="reveal">Precio por clase suelta</h2>
+      <div class="clase-grid reveal-stagger">
         <div class="clase-card">
           <span class="clase-icon">👤</span>
           <span class="clase-tipo">Individual</span>
@@ -130,7 +133,7 @@
           <span class="clase-price">$48.000</span>
         </div>
       </div>
-      <p class="clase-note">* Cancha incluida en todos los casos · Horarios: 7:00 a 15:00 hs · Lugar: Padelmanía o a convenir</p>
+      <p class="clase-note reveal">* Cancha incluida en todos los casos · Horarios: 7:00 a 15:00 hs · Lugar: Padelmanía o a convenir</p>
     </div>
   </section>
 
