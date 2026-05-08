@@ -71,6 +71,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
   --sp-4:  16px;
   --sp-5:  20px;
   --sp-6:  24px;
+  --sp-7:  28px;
   --sp-8:  32px;
   --sp-10: 40px;
   --sp-12: 48px;
@@ -784,6 +785,22 @@ button:focus-visible,
   .plan-card.featured:hover { transform: translateY(-9px) scale(1.02); }
 }
 
+/* Very narrow phones: stack plan card vertically so the price doesn't push out */
+@media (max-width: 380px) {
+  .plan-card {
+    flex-direction: column;
+    align-items: stretch;
+    padding: var(--sp-5);
+  }
+  .plan-price-col {
+    text-align: left;
+    margin-top: var(--sp-4);
+    padding-top: var(--sp-4);
+    border-top: 1px solid rgba(255, 255, 255, .08);
+  }
+  .plan-cta { width: 100%; }
+}
+
 .plan-badge {
   position: absolute;
   top: -11px;
@@ -805,7 +822,7 @@ button:focus-visible,
 
 .plan-name {
   font-family: var(--ff-display);
-  font-size: 26px;
+  font-size: clamp(22px, 6vw, 26px);
   color: var(--paper);
   letter-spacing: .04em;
   margin-bottom: 4px;
@@ -861,7 +878,7 @@ button:focus-visible,
 
 .plan-new {
   font-family: var(--ff-display);
-  font-size: 36px;
+  font-size: clamp(28px, 8vw, 36px);
   color: var(--paper);
   letter-spacing: .02em;
   line-height: 1;
